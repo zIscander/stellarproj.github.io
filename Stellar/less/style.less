@@ -1,0 +1,970 @@
+// Переменные цвета
+	@color-txt: #3d3d3d;
+	@light: #fff;
+	@color-btn: #5e450e;
+	@color-bg: #ededed;
+
+// Общие стили
+	*, *::befor, *::after {
+		box-sizing: border-box;
+		padding: 0;
+		margin: 0;
+	}
+	html {
+		font-size: 10px;
+	}
+	body {
+		font-family: 'Sofia Sans', sans-serif;
+		color: @color-txt;
+	}
+	a, a:hover, a:focus, a:visited {
+		text-decoration: none;
+		color: @light;
+	}
+	button {
+		border: none;
+		background-color: transparent;
+	}
+	section {
+		padding: 10rem 0;
+		.title {
+			margin-bottom: 10rem;
+			font-size: 3.5rem;
+			font-weight: 800;
+		}
+		.sub-title {
+			font-size: 2.5rem;
+			margin-bottom: 4rem;
+		}
+	}
+	
+	.all-btn {
+		padding: 0.5rem 2rem;
+		border-radius: 5rem;
+		border: 2px solid @light;
+		color: @light;
+		transition: 0.4s;
+		&:hover {
+			background-color: @color-btn;
+			color: @light;
+		}
+	}
+
+	.down-btn {
+		position: relative;
+		display: inline-block;
+		margin-top: 3rem;
+		width: 5rem;
+		height: 5rem;
+		border: 2px solid @color-btn;
+		border-radius: 5rem;
+		transform: rotate(90deg);
+		z-index: 1;
+		transition: 0.4s;
+		&::before, &::after {
+			content: '';
+			display: inline-block;
+			position: absolute;
+			margin-left: -0.6rem;
+			left: 50%;
+			width: 1.6rem;
+			height: 0.2rem;
+			background-color: @color-btn;
+		}
+		&::before {
+			top: 48%;
+			margin-top: -0.5rem;
+			transform: rotate(45deg);
+		}
+
+		&::after {
+			top: 48%;
+			margin-top: 0.5rem;
+			transform: rotate(-45deg);
+		}
+		&:hover {
+			background-color: @color-btn;
+			&::before, &::after {
+				background-color: @light;
+			}
+		}
+
+	}
+
+
+	.bd {
+		border: 1px solid #000;
+	}
+
+// Навигация
+	
+	.nav {
+		position: fixed;
+		height: 6rem;
+		width: 100%;
+		border-bottom: 3px solid @color-btn;
+		border-bottom-right-radius: 5rem ;
+		border-bottom-left-radius: 5rem ;
+		background-color: rgba(94, 69, 14, 0.5);
+		z-index: 2;
+		color: @light;
+		.logo{
+			position: relative;
+			z-index: 1;
+			img {
+				padding: 1rem;
+				width: 7rem;
+			}
+			h2 {
+				position: absolute;
+				top: 3rem;
+				display: inline-block;
+				font-size: 2.5rem;
+				font-weight: 800;
+				text-transform: uppercase;
+				letter-spacing: 0.2rem;
+			}
+		}
+		&-block {
+			position: relative;
+			margin-left: 14rem;
+			font-size: 1.7rem;
+			text-align: center;
+			z-index: 1;
+		}		
+		&-link {
+			display: inline-block;
+			position: relative;
+			margin-right: 3rem;
+			margin-top: 2.3rem;
+			padding: 0;
+			font-weight: 600;
+			text-transform: uppercase;
+			color: @light;
+			&:hover {
+				color: @light;
+			}
+			&::before{
+				content: '';
+				position: absolute;
+				left: 0;
+				bottom: 0rem;
+				width: 100%;
+				height: 0.2rem;
+				background: @light;
+				transition: 0.2s;
+				transform: scaleX(0);
+			}
+			&:hover:before {
+				transform: scaleX(1);
+			}
+		}
+		&-contacts {
+			text-align: right;
+			a, button{
+				position: relative;
+				display: inline-block;
+				margin-top: 2rem;
+				font-size: 1.4rem;
+				cursor: pointer;
+				z-index: 1;
+			}
+			a{
+				margin-right: 1.8rem;
+			}
+			a::before{
+				content: '';
+				position: absolute;
+				left: 0;
+				bottom: 0;
+				width: 100%;
+				height: 0.2rem;
+				background: @light;
+				transition: 0.4s;
+				transform: scaleX(0);
+			}
+			a:hover:before {
+				transform: scaleX(1);
+			}
+		}
+	}
+	ul {
+		display: none;
+		background-color: rgba(94, 69, 14, 0.9);
+		width: 25rem;
+		padding-top: 5rem;
+		margin-top: -5rem;
+		border-radius: 3rem;
+		// border-radius: 5rem;
+	 li{
+		list-style: none;
+		}
+	}
+
+// Меню для маленьких экранов
+	
+	.mini-nav-link {
+		// скрытие мини ссылок
+		display: none;
+	}
+
+// Первая секция Главная
+	
+	.main {
+		height: 100vh;
+		text-align: center;
+		&::after {
+			content: "";
+			position: absolute;
+			left: 0;
+			top: 0;
+			background: url('../img/03.jpg') no-repeat center;
+			background-size: cover;
+			width: 100%;
+			height: 100vh;
+			z-index: 0;
+			opacity: 0.5;
+		}
+		&-title {
+			position: relative;
+			z-index: 1;
+			margin-top: 10rem;
+			font-size: 4rem;
+			line-height: 1.4;
+			font-weight: 800;
+		}
+		&-sub_title {
+			position: relative;
+			z-index: 1;
+			margin: 5rem auto;
+			font-size: 2.4rem;
+		}
+	}
+
+// Вторая секция О нас
+	
+	.about {
+		box-shadow: -1px -1px 15px 3px black;
+		background-color: @color-bg;
+		.title {
+			margin-bottom: 3rem;
+			margin-left: 3rem;
+		}
+		.sub-title {
+		}
+	}
+
+// Третья секция Преимущества
+	.features {
+		background: url(../img/features/f-bg.JPG) no-repeat center;
+		background-size: cover;
+		min-height: 100vh;
+		color: @light;
+		padding-bottom: 1rem;
+		.section-header {
+			padding-bottom: 0;
+		}
+		.title {
+			margin-bottom: 4rem;
+		}
+		.sub-title {
+
+		}
+		&-block {
+			display: inline-block;
+			text-align: center;
+			max-width: 22rem;
+			min-height: 33rem;
+			margin-top: 5rem;
+			padding: 2rem 1rem;
+			background-color: rgba(0, 0, 0, 0.5);
+			border: 2px solid @color-btn;
+			border-radius: 5rem;
+			transition: 0.4s;
+			&:hover {
+				background-color: @color-btn; 
+
+			}
+			&-title {
+				font-size: 2rem;
+			}
+			&-img {
+				width: 20rem;
+				margin-bottom: 2rem;
+				filter: invert(1);
+			}
+		}
+		&-slider {
+			text-align: center;
+			margin: 6rem auto; 
+			&-block {
+
+				.slid-circle {
+					display: inline-block;
+					width: 10rem;
+					height: 10rem;
+					margin-bottom: 2rem;
+					background-color: @color-btn;
+					color: @light;
+					text-align: center;
+					font-size: 6rem;
+					line-height: 10rem;
+					border: 2px solid @light;
+					border-radius: 50%;
+				}
+				.slid-txt {
+					color: @light;
+					text-align: center;
+					font-size: 1.8rem;
+					strong {
+						font-size: 2rem;
+					}
+				}
+			}
+		}
+	}
+	.arrow {
+		position: relative;
+		width: 2.5rem;
+		height: 2.5rem;
+		background-color: @color-btn;
+		border: 2px solid @light;
+		border-radius: 5rem;
+	}
+	.prev, .next {
+		&::before, &::after {
+			content: '';
+			position: absolute;
+			width: 0.6rem;
+			height: 0.2rem;
+			background-color: @light;
+			top: 50%;
+			margin-top: -0.1rem;
+		}
+	}
+
+	.next {
+		bottom: 15rem;
+		left: 37rem;
+		&::after {
+			transform: rotate(45deg);
+			transform-origin: right;
+			right: 0.7rem;
+		}
+		&::before {
+			transform: rotate(-45deg);
+			transform-origin: right;
+			right: 0.7rem;
+		}
+	}
+	.prev {
+		top: 7rem;
+		right: 37rem;
+		&::after {
+			transform: rotate(45deg);
+			transform-origin: left;
+			left: 0.7rem;
+		}
+		&::before {
+			transform: rotate(-45deg);
+			transform-origin: left;
+			left: 0.7rem;
+		}
+	}
+
+// Четвертая секция	Тариф
+	
+	.rates {
+		position: relative;
+		text-align: center;
+		background-color: rgba(150, 150, 150, 1);
+		z-index: 1;
+		h2 {
+			color: @light;
+		}
+		&::after {
+			content: '';
+			position: absolute;
+			left: 0;
+			bottom: 0;
+			width: 100%;
+			height: 100%;
+			z-index: 0;
+			background: url(../img/r-bg.png) no-repeat center;
+			background-size: cover;
+		}
+		&-block {
+			position: relative;
+			z-index: 1;
+			color: @light;
+			img {
+				width: 20rem;
+				margin-bottom: 3rem;
+			}
+			h3 {
+
+				font-size: 2.4rem;
+				margin-bottom: 2rem;
+			}
+			p {
+				font-size: 1.8rem;
+				margin-bottom: 4rem;
+			}
+			.all-btn {
+				font-size: 2rem;
+				color: @light;
+				border-color: @light;
+				&:hover{
+					color: @color-txt;
+					background: @color-bg;
+				}
+			}
+		}
+		&-sub-title {
+			position: relative;
+			margin-top: 4rem;
+			font-size: 2.2rem;
+			color: @light;
+			z-index: 1;
+		}
+	}
+
+// Пятая секция Статистика
+	
+	.stat {
+		position: relative;
+		text-align: center;
+		box-shadow: -2px -2px 15px 3px black;
+		z-index: 1;
+		.row {
+			margin-bottom: 1.3rem;
+			border-bottom: 2px solid @color-txt;
+			border-bottom-right-radius: 5rem ;
+			border-bottom-left-radius: 5rem ;
+		}
+		h3 {
+			font-size: 3rem;
+			font-weight: 800;
+		}
+		p {
+			font-size: 3rem;
+		}
+		&-years {
+			font-size: 5rem;
+
+		}
+	}
+
+// Шестая секция Контакты
+
+	.contacts {
+		position: relative;
+		background-color: rgba(150, 150, 150, 1);
+		z-index: 1;
+		color: @light;
+		&::before {
+			content: '';
+			position: absolute;
+			left: 0;
+			top: 0;
+			z-index: 0;
+			width: 100%;
+			height: 100%;
+			background: url(../img/c-bg.png) no-repeat center;
+			background-size: cover;
+		}
+		.title {
+			position: relative;
+			z-index: 1;
+			text-align: center;
+			margin-bottom: 4rem;
+		}
+		.sub-title {
+			position: relative;
+			z-index: 1;
+			font-size: 4rem;
+		}
+		.map {
+			position: relative;
+			z-index: 1;
+		}
+		p {
+			position: relative;
+			z-index: 1;
+			font-size: 2rem;
+			margin: 2rem 0;
+			strong {
+				font-weight: 800;
+			}
+			a {
+				color: @light;
+			}
+		}
+		.form {
+			position: relative;
+			z-index: 1;
+			padding: 2rem;
+			border: 2px solid @light;
+			border-radius: 5rem;
+			&-title {
+				text-align: center;
+				font-size: 2.6rem;
+				line-height: 1.4;
+				margin-bottom: 4.8rem;
+			}
+			form {
+				label, input {
+					text-align: center;
+					margin: 0.5rem auto;
+					display: block;
+					font-size: 1.8rem;
+				}
+
+				input {
+					margin-bottom: 2.6rem;
+					width: 60%;
+					height: 3rem;
+					border-radius: 5rem;
+					border: none;
+					font-size: 1.6rem;
+				}
+				.all-btn {
+					margin-top: 4rem;
+					color: @color-txt;
+					height: 4rem;
+					&:hover {
+						color: @light;
+					}
+				}
+			}
+		}
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Медиа запросы 
+	// Экраны LG
+		@media (max-width: 1199px) {
+			.nav {
+				.logo {
+					img {
+						margin-top: 1rem;
+						margin-right: 0.5rem;
+						width: 5rem;
+						padding: 0;
+					}
+					h2 {
+					font-size: 2.5rem;
+					}
+				}
+				&-block {
+					margin-left: 6rem;
+				}
+				&-link {
+					font-size: 1.5rem;
+					margin-right: 2rem;
+					margin-top: 2.5rem;
+				}
+				&-contacts {
+					text-align: center;
+					a, button{ 
+						margin: 0;
+						margin-top: 2rem;
+						font-size: 1.1rem;
+						font-weight: 600;
+					}
+					a {
+						margin-right: 0.6rem;
+					}
+				}
+			}
+			.contacts {
+				p {
+					font-size: 1.8rem;
+				}
+				.form {
+					padding: 1rem;
+				}
+			}
+		}
+
+	// Экраны MD
+		@media (max-width: 991px) {
+			.nav{
+				&-link {
+				display: none;
+				}
+			}
+			.mini-nav {
+				ul {
+					display: block;
+					border: 2px solid @light;
+					li {
+						padding-right: 1.5rem;
+						font-size: 1.8rem;
+						padding-bottom: 1rem;
+						a {
+							transition:  0.4s ;
+							&:hover {
+								color: darken(@light, 40%);
+							}
+						}
+					}
+				}
+				padding-top: 7rem;
+				margin-left: 23rem;
+				transition: 0.4s;
+				transform: scaleY(0), translateY(20%);
+				opacity: 0;
+
+				&-active {
+					transform: scaleY(1), translateY(0);
+					opacity: 1;
+				}
+				a {
+					display: inline-block;
+
+				}
+				&-btn {
+					position: absolute;
+					top: 2rem;
+					left: 23rem;
+					width: 25rem;
+					height: 3rem;
+					border-radius: 5rem;
+					border: 2px solid @light;
+					transition: 0.4s;
+					z-index: 1;
+					&-active, &:hover {
+						background-color: rgba(94, 69, 14, 0.6);
+					}	
+					&-active {
+						border-bottom: none;
+						border-bottom-right-radius: 0;
+						border-bottom-left-radius: 0;
+					}
+					span {
+						position: absolute;
+						left: 50%;
+						margin-top: -0.1rem;
+						top: 50%;
+						transform: translateX(-50%);
+						width: 6rem;
+						height: 0.2rem;
+						background-color: @light;
+						transition: 0.6s;
+					}	
+					span::before {
+						content: '';
+						position: absolute;
+						top: 0.7rem;
+						right: 50%;
+						transform: translateX(50%);
+						width: 9rem;
+						height: 0.2rem;
+						background-color: @light;
+						transition: 0.3s;
+					}	
+					span::after {
+						content: '';
+						position: absolute;
+						top: -0.7rem;
+						right: 50%;
+						transform: translateX(50%);
+						width: 3rem;
+						height: 0.2rem;
+						background-color: @light;
+						transition: 0.9s;
+					}
+					&-active span::before {
+						top: -0.7rem;
+					}
+					&-active span::after {
+						top: 0.7rem;
+					}
+				}
+			}
+			.about {
+				.down-btn {
+				}
+			}
+			.features {
+				&-block {
+					min-height: 26rem;
+					&-title {
+						font-size: 1.6rem;
+					}
+					&-img {
+						width: 15rem;
+					}
+				}
+			}
+			.rates {
+				&-block {
+					img {
+						width: 16rem;
+					}
+				}
+			}
+			.contacts {
+					p {
+						font-size: 1.4rem;
+					}
+				.form {
+					padding: 2rem;
+					&-title {
+						font-size: 2rem;
+						margin-bottom: 3rem;
+					}
+					form {
+						input {
+							width: 100%;
+						}
+					}
+				}
+			}
+		}
+
+	// Экраны SM
+		@media (max-width: 767px) {
+			.nav {
+				.logo {
+					left: -2rem;
+
+				}
+				&-contacts {
+					position: absolute;
+					left: 50%;
+					transform: translateX(-50%);
+					top: 0.8rem;
+					z-index: 1;
+				}
+			}
+			.mini-nav {
+				position: absolute;
+				left: 31rem;
+				top: -5rem;
+				margin-left: -5rem;
+				ul {
+					width: 23rem;
+					margin-top: -5.3rem;
+
+				}
+				&-btn {
+					width: 23rem;
+					top: -3.4rem;
+					left: 26rem;
+				}
+			}
+			.main {
+				.down-btn {
+					margin-top: -2.5rem;
+				}
+			}
+			.next {
+				left: 30rem;
+			}
+			.prev {
+				right: 30rem;
+			}
+			.rates {
+				&-block {
+					img {
+						width: 12rem;
+					}
+					h3 {
+						font-size: 2rem;
+					}
+					p {
+						font-size: 1.4rem;
+					}
+					.all-btn{
+						font-size: 1.6rem;
+					}
+
+				}
+			}
+			.stat {
+				h3 {
+					font-size: 2rem;
+				}
+				p {
+					font-size: 2rem;
+				}
+				&-years {
+					font-size: 3rem;
+
+				}
+			}
+			.contacts {
+					p {
+						text-align: center;
+						font-size: 2rem;
+					}
+				.form {
+					margin-top: 4rem;
+					padding: 2rem;
+					&-title {
+						font-size: 2rem;
+						margin-bottom: 3rem;
+					}
+					form {
+						input {
+							width: 100%;
+						}
+					}
+				}
+			}
+		}
+
+
+	// Экраны SX
+		@media (max-width: 575px) {
+			.nav {
+				.logo {
+					left: 9rem;
+				}
+				&-contacts {
+					display: none;
+				}
+			}
+			.mini-nav {
+				left: 23rem;
+				top: -5rem;
+				&-btn {
+					width: 20rem;
+					left: 18rem;
+					top: -3.4rem;
+				}
+				ul {
+					width: 20rem;
+				}
+			}
+			.about {
+				text-align: center;
+			}
+			.features {
+				text-align: center;
+				&-block {
+					margin: 2rem auto;
+				}
+			}
+			.next {
+				left: 20rem;
+			}
+			.prev {
+				right: 20rem;
+			}
+			.rates {
+				&-block {
+					display: inline-block;
+					padding: 2rem;
+					margin-bottom: 5rem; 
+					border: 2px dotted @light;
+					border-radius: 5rem;
+				}
+			}
+			.stat {
+				h3 {
+					font-size: 2rem;
+				}
+				p {
+					font-size: 1.6rem;
+				}
+				&-years {
+					font-size: 1.8rem;
+
+				}
+			}
+			.contacts {
+				text-align: center;
+			}
+		}
+
+	// Экран айфон 12 про
+		@media (max-width: 390px) {
+			.nav {
+				.logo {
+
+					h2 {
+						display: none;
+					}
+				}
+			}
+			.mini-nav {
+				position: absolute;
+				left: 11rem;
+				top: -5rem;
+				&-btn {
+					width: 15rem;
+					top: -3rem;
+					left: 10rem;
+				}
+				ul {
+					width: 15rem;
+					margin-left: 4rem;
+					margin-top: -5rem;
+				}
+			}
+			.main {
+				&-title {
+					font-size: 3.2rem;
+				}
+			}
+			.next {
+				left: 15rem;
+			}
+			.prev {
+				right: 15rem;
+			}
+			.stat {
+				h3 {
+					font-size: 1.8rem;
+				}
+				p {
+					font-size: 1.2rem;
+				}
+			}
+		}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
